@@ -21,9 +21,11 @@ import id.sch.smktelkom_mlg.learn.recyclerview3.model.Hotel;
 
 public class MainActivity extends AppCompatActivity implements HotelAdapter.IHotelAdapter {
     private static final int REQUEST_CODE_ADD = 88;
-    public static String Hotel;
+    private static final int REQUEST_CODE_EDIT = 99 ;
+    public static String HOTEL;
     ArrayList<Hotel> mList = new ArrayList<>();
     HotelAdapter mAdapter;
+    int itemPos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +124,16 @@ public class MainActivity extends AppCompatActivity implements HotelAdapter.IHot
     @Override
     public void doClick(int pos) {
         Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra(Hotel, mList.get(pos));
+        intent.putExtra(HOTEL, mList.get(pos));
         startActivity(intent);
     }
+
+    @Override
+    public void doEdit(int pos) {
+        itemPos = pos;
+        Intent intent = new Intent(this, InputActivity.class);
+        intent.putExtra(HOTEL, mList.get(pos));
+        startActivityForResult(intent, REQUEST_CODE_EDIT);
+    }
+
 }

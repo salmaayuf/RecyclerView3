@@ -22,4 +22,5 @@ public class Hotel implements Serializable {
         this.lokasi = lokasi;
         this.foto = foto;
     }
+
 }
