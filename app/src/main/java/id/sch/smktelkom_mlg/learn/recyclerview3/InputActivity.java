@@ -6,19 +6,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import id.sch.smktelkom_mlg.learn.recyclerview3.model.Hotel;
 
-import static android.app.Activity.RESULT_OK;
-
-/**
- * Created by salmaayu on 05/11/2016.
- */
-
-public class InputActivity {
+public class InputActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_GET = 1;
     EditText etJudul, etDeskripsi, etDetail, etLokasi;
@@ -65,7 +60,7 @@ public class InputActivity {
         etDeskripsi.setText(hotel.deskripsi);
         etDetail.setText(hotel.detail);
         etLokasi.setText(hotel.lokasi);
-        uriFoto = Uri.parse(hotel.foto);
+        uriFoto = Uri.parse(String.valueOf(hotel.foto));
         ivFoto.setImageURI(uriFoto);
     }
 
