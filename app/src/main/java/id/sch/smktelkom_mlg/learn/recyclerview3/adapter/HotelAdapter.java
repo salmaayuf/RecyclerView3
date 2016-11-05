@@ -56,6 +56,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
 
     public interface IHotelAdapter {
         void doClick(int pos);
+        void doEdit(int pos);
 
     }
 
